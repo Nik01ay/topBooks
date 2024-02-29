@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  topbooks-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/main/resources:/app/src/main/resources
+      - ./build/libs/topBooks-0.0.1-SNAPSHOT-plain.jar:/app/topBooks-0.0.1-SNAPSHOT-plain.jar
+      - ./resources/static/goodreads_top100_from1980to2023_final.csv:/app/goodreads_top100_from1980to2023_final.csv
+    environment:
+      SPRING_CONFIG_LOCATION: classpath:/application.yml
+      CSV_FILE: goodreads_top100_from1980to2023_final.csv

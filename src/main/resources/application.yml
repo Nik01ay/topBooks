@@ -1,0 +1,6 @@
+spring:
+  csv:
+    import:
+      enabled: true
+      locations: classpath:/static/goodreads_top100_from1980to2023_final.csv
+
